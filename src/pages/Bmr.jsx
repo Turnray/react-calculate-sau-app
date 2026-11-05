@@ -17,15 +17,15 @@ export default function Bmr() {
       return;
     }
  
-    let bmrValue = 0;
+    let bmrValue; // แก้ไขตรงนี้จาก let bmrValue = 0; เป็น let bmrValue; เพื่อไม่ให้ ESLint เตือนเรื่องตัวแปร
     const w = Number(weight);
     const h = Number(height);
     const a = Number(age);
  
     if (gender === "male") {
-      bmrValue = 66 + 13.7 * w + 5 * h - 6.8 * a; //ชาย
+      bmrValue = 66 + 13.7 * w + 5 * h - 6.8 * a; // ชาย
     } else {
-      bmrValue = 665 + 9.6 * w + 1.8 * h - 4.7 * a; //หญิง
+      bmrValue = 665 + 9.6 * w + 1.8 * h - 4.7 * a; // หญิง
     }
  
     const calculatedBmr = bmrValue.toFixed(2);
@@ -34,7 +34,7 @@ export default function Bmr() {
     if (gender === "male") {
       if (bmrValue < 1200) {
         setBmrStatus(
-          "อัตราการเผาผลาญต่ำกว่าปกติ (ควรดูแลการทานอาหารและออกกำลังกาย)",
+          "อัตราการเผาผลาญต่ำกว่าปกติ (ควรดูแลการทานอาหารและออกกำลังกาย)"
         );
       } else if (bmrValue >= 1200 && bmrValue <= 2000) {
         setBmrStatus("ปกติ (ระบบเผาผลาญอยู่ในเกณฑ์สุขภาพดี)");
@@ -44,7 +44,7 @@ export default function Bmr() {
     } else {
       if (bmrValue < 1000) {
         setBmrStatus(
-          "อัตราการเผาผลาญต่ำกว่าปกติ (ควรดูแลการทานอาหารและออกกำลังกาย)",
+          "อัตราการเผาผลาญต่ำกว่าปกติ (ควรดูแลการทานอาหารและออกกำลังกาย)"
         );
       } else if (bmrValue >= 1000 && bmrValue <= 1700) {
         setBmrStatus("ปกติ (ระบบเผาผลาญอยู่ในเกณฑ์สุขภาพดี)");
@@ -67,8 +67,8 @@ export default function Bmr() {
     <>
       <div
         className="w-[50%] border border-gray-200 rounded-2xl
-                    shadow-xl mt-20 mx-auto flex flex-col
-                    items-center p-10 bg-white"
+                   shadow-xl mt-20 mx-auto flex flex-col
+                   items-center p-10 bg-white"
       >
         <p className="font-kanit font-bold text-2xl">BMR Calculator</p>
         <p className="font-kanit font-bold text-gray-500">คำนวณ BMR</p>
